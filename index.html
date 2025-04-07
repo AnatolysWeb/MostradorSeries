@@ -23,15 +23,68 @@
     }
 
     /* ======== ENCABEZADO ======== */
-    header {
-      padding: 30px 20px;
-      background-color: #111;
-    }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #e50914;
-    }
+    /* ======== HEADER ESTILO NETFLIX ======== */
+header {
+  background-color: #111;
+  padding: 20px 30px;
+  border-bottom: 1px solid #222;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-titulo h1 {
+  color: #e50914;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+
+.logo-titulo p {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-left: 2px;
+}
+
+/* Botones de sesión */
+.acciones {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-sesion {
+  background-color: transparent;
+  border: 1px solid #e50914;
+  color: #e50914;
+  padding: 8px 18px;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-sesion:hover {
+  background-color: #e50914;
+  color: #fff;
+}
+
+.btn-registro {
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+}
+
+.btn-registro:hover {
+  background-color: #b00610;
+}
 
     /* ======== TITULOS DE CATEGORÍA ======== */
     .categoria {
@@ -135,14 +188,40 @@
         height: 180px;
       }
     }
+
+    @media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .acciones {
+    align-self: flex-end;
+  }
+
+  .btn-sesion {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
+}
+
   </style>
 </head>
 <body>
 
   <!-- ENCABEZADO -->
   <header>
-    <h1>Netflix...</h1>
-    <p>Mi catálogo de pelis</p>
+    <div class="header-container">
+      <div class="logo-titulo">
+        <h1>Netflix</h1>
+        <p>Mi catálogo de pelis</p>
+      </div>
+      <div class="acciones">
+        <button class="btn-sesion">Iniciar sesión</button>
+        <button class="btn-sesion btn-registro">Registrarse</button>
+      </div>
+    </div>
   </header>
 
   <!-- FILA 1 -->
@@ -151,22 +230,22 @@
     <div class="contenedor-carrusel">
       <button class="btn-izq">&#10094;</button>
       <div class="fila">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 1">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 2">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 3">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 4">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 5">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 6">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 7">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 8">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 9">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 10">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 11">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 12">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 13">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 14">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 15">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 16">
+        <img src="Imagenes/fila1/24 Books You Should Read, Based On Your Favorite TV Shows.jpeg" alt="Peli 1">
+        <img src="Imagenes/fila1/Arcane.jpeg" alt="Peli 2">
+        <img src="Imagenes/fila1/descargar (1).jpeg" alt="Peli 3">
+        <img src="Imagenes/fila1/descargar (2).jpeg" alt="Peli 4">
+        <img src="Imagenes/fila1/descargar (3).jpeg" alt="Peli 5">
+        <img src="Imagenes/fila1/descargar (4).jpeg" alt="Peli 6">
+        <img src="Imagenes/fila1/descargar (5).jpeg" alt="Peli 7">
+        <img src="Imagenes/fila1/descargar (6).jpeg" alt="Peli 8">
+        <img src="Imagenes/fila1/descargar (7).jpeg" alt="Peli 9">
+        <img src="Imagenes/fila1/descargar.jpeg" alt="Peli 10">
+        <img src="Imagenes/fila1/la casa de papel.jpeg" alt="Peli 11">
+        <img src="Imagenes/fila1/Mindhunter (2017).jpeg" alt="Peli 12">
+        <img src="Imagenes/fila1/Narcos TV Series Poster.jpeg" alt="Peli 13">
+        <img src="Imagenes/fila1/Sex Education (2019).jpeg" alt="Peli 14">
+        <img src="Imagenes/fila1/Should I Watch 13 Reasons Why – From a Parents Perspective.jpeg" alt="Peli 15">
+        <img src="Imagenes/fila1/The Top 15 Shows On Netflix To Watch Together With Bae.jpeg" alt="Peli 16">
       </div>
       <button class="btn-der">&#10095;</button>
     </div>
@@ -178,22 +257,22 @@
     <div class="contenedor-carrusel">
       <button class="btn-izq">&#10094;</button>
       <div class="fila">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 1">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 2">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 3">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 4">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 5">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 6">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 7">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 8">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 9">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 10">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 11">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 12">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 13">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 14">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 15">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 16">
+        <img src="Imagenes/fila2/COBRA KAI - Season 5 (2022).jpeg" alt="Peli 1">
+        <img src="Imagenes/fila2/descargar (1).jpeg" alt="Peli 2">
+        <img src="Imagenes/fila2/descargar (2).jpeg" alt="Peli 3">
+        <img src="Imagenes/fila2/descargar (3).jpeg" alt="Peli 4">
+        <img src="Imagenes/fila2/descargar.jpeg" alt="Peli 5">
+        <img src="Imagenes/fila2/Emily in Paris 3.jpeg" alt="Peli 6">
+        <img src="Imagenes/fila2/Fubar Upcoming 2023 Netflix Series.jpeg" alt="Peli 7">
+        <img src="Imagenes/fila2/Locke & Key ( Opinion ).jpeg" alt="Peli 8">
+        <img src="Imagenes/fila2/NETFLIX BRIDGERTON - DAPHNE AND SIMON.jpeg" alt="Peli 9">
+        <img src="Imagenes/fila2/PEAKY BLINDERS.jpeg" alt="Peli 10">
+        <img src="Imagenes/fila2/Shadow and Bone.jpeg" alt="Peli 11">
+        <img src="Imagenes/fila2/Super Crooks - Mark Millar, Leinil Yu.jpeg" alt="Peli 12">
+        <img src="Imagenes/fila2/Sweet Tooth.jpeg" alt="Peli 13">
+        <img src="Imagenes/fila2/The Diplomat (series, 2023-).jpeg" alt="Peli 14">
+        <img src="Imagenes/fila2/The Queen's Gambit.jpeg" alt="Peli 15">
+        <img src="Imagenes/fila2/XO, Kitty 2023.jpeg" alt="Peli 16">
       </div>
       <button class="btn-der">&#10095;</button>
     </div>
@@ -205,30 +284,31 @@
     <div class="contenedor-carrusel">
       <button class="btn-izq">&#10094;</button>
       <div class="fila">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 1">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 2">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 3">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 4">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 5">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 6">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 7">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 8">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 9">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 10">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 11">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 12">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 13">
-        <img src="Imagenes/imagen03.jpg" alt="Peli 14">
-        <img src="Imagenes/imagen01.jpg" alt="Peli 15">
-        <img src="Imagenes/imagen02.jpg" alt="Peli 16">
+        <img src="Imagenes/fila3/Al adaptación de Devil May Cry de Netflix ya tiene fecha de estreno.jpeg" alt="Peli 1">
+        <img src="Imagenes/fila3/Bad Influence_ The Dark Side of Kidfluencing (TV Series 2025) _ Documentary.jpeg" alt="Peli 2">
+        <img src="Imagenes/fila3/Den of Thieves 2_ Pantera (2025).jpeg" alt="Peli 3">
+        <img src="Imagenes/fila3/descargar (1).jpeg" alt="Peli 4"><img src="Imagenes/fila3/descargar.jpeg" alt="Peli 5">
+        
+        <img src="Imagenes/fila3/From, saison I_.jpeg" alt="Peli 6">
+        <img src="Imagenes/fila3/Movies recommendations 2025 _ Ransom Canyon_ is actually a TV series, not a movie _ Facebook.jpeg" alt="Peli 7">
+        <img src="Imagenes/fila3/Poster da 2ª temporada de _The Walking Dead_.jpeg" alt="Peli 8">
+        <img src="Imagenes/fila3/Pôster da série Jurassic World Teoria do Caos!.jpeg" alt="Peli 9">
+        <img src="Imagenes/fila3/Pulse [回路 Kairo] (Kiyoshi Kurosawa, 2001).jpeg" alt="Peli 10">
+        <img src="Imagenes/fila3/stranger things - the first shadow _ Phoenix Theatre.jpeg" alt="Peli 11">
+        <img src="Imagenes/fila3/The Black Balloon (2008).jpeg" alt="Peli 12">
+        <img src="Imagenes/fila3/The Constant Gardener (2005).jpeg" alt="Peli 13">
+        <img src="Imagenes/fila3/The North Water.jpeg" alt="Peli 14">
+        <img src="Imagenes/fila3/Young Sheldon Poster Collection_ 30+ Amazing Posters for Sheldon Cooper Fans.jpeg" alt="Peli 15">
       </div>
       <button class="btn-der">&#10095;</button>
     </div>
   </section>
-
+  <section>
+    <h2>Material: Pinterest</h2>
+  </section>
   <!-- PIE DE PÁGINA -->
   <footer>
-    Plantilla tipo Netflix - Anatolys
+    Plantilla tipo Netflix - Anatolys && lilissie
   </footer>
 
   <!-- SCRIPT AL FINAL PARA QUE FUNCIONE CORRECTAMENTE -->
