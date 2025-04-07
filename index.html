@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mi Catálogo Estilo Netflix</title>
 
-  <!-- Fuente personalizada (Es la fuente de tipo Roboto) -->
+  <!-- Fuente personalizada (Roboto) -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ======== ESTILOS GENERALES ========  parte de un css*/
+    /* ======== ESTILOS GENERALES ======== */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -73,6 +73,39 @@
       box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
     }
 
+    .contenedor-carrusel {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-izq,
+    .btn-der {
+      position: absolute;
+      z-index: 10;
+      background-color: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      height: 100%;
+      width: 50px;
+      transition: background 0.3s;
+    }
+
+    .btn-izq:hover,
+    .btn-der:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .btn-izq {
+      left: 0;
+    }
+
+    .btn-der {
+      right: 0;
+    }
+
     /* ======== PIE DE PÁGINA ======== */
     footer {
       background-color: #111;
@@ -108,42 +141,88 @@
 
   <!-- ENCABEZADO -->
   <header>
-    <h1>Mi Catálogo de Pelis</h1>
+    <h1>Netflix...</h1>
+    <p>Mi catálogo de pelis</p>
   </header>
 
   <!-- FILA 1 -->
   <section>
     <div class="categoria">Populares</div>
-    <div class="fila">
-      <img src="ImagenesCarrusel/imagen01.jpg" alt="Peli 1">
-      <img src="ImagenesCarrusel/imagen02.jpg" alt="Peli 2">
-      <img src="ImagenesCarrusel/imagen03.jpg" alt="Peli 3">
-      <img src="ImagenesCarrusel/imagen01.jpg" alt="Peli 4">
-      <img src="ImagenesCarrusel/imagen02.jpg" alt="Peli 5">
+    <div class="contenedor-carrusel">
+      <button class="btn-izq">&#10094;</button>
+      <div class="fila">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 1">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 2">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 3">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 4">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 5">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 6">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 7">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 8">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 9">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 10">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 11">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 12">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 13">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 14">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 15">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 16">
+      </div>
+      <button class="btn-der">&#10095;</button>
     </div>
   </section>
 
   <!-- FILA 2 -->
   <section>
-    <div class="categoria">Tendencias</div>
-    <div class="fila">
-      <img src="ImagenesCarrusel/imagen03.jpg" alt="Tendencia 1">
-      <img src="ImagenesCarrusel/imagen01.jpg" alt="Tendencia 2">
-      <img src="ImagenesCarrusel/imagen02.jpg" alt="Tendencia 3">
-      <img src="ImagenesCarrusel/imagen03.jpg" alt="Tendencia 4">
-      <img src="ImagenesCarrusel/imagen01.jpg" alt="Tendencia 5">
+    <div class="categoria">Nuevas</div>
+    <div class="contenedor-carrusel">
+      <button class="btn-izq">&#10094;</button>
+      <div class="fila">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 1">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 2">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 3">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 4">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 5">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 6">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 7">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 8">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 9">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 10">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 11">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 12">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 13">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 14">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 15">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 16">
+      </div>
+      <button class="btn-der">&#10095;</button>
     </div>
   </section>
 
   <!-- FILA 3 -->
   <section>
-    <div class="categoria">Series animadas</div>
-    <div class="fila">
-      <img src="ImagenesCarrusel/imagen02.jpg" alt="Serie 1">
-      <img src="ImagenesCarrusel/imagen03.jpg" alt="Serie 2">
-      <img src="ImagenesCarrusel/imagen01.jpg" alt="Serie 3">
-      <img src="ImagenesCarrusel/imagen02.jpg" alt="Serie 4">
-      <img src="ImagenesCarrusel/imagen03.jpg" alt="Serie 5">
+    <div class="categoria">Recomendadas</div>
+    <div class="contenedor-carrusel">
+      <button class="btn-izq">&#10094;</button>
+      <div class="fila">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 1">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 2">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 3">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 4">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 5">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 6">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 7">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 8">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 9">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 10">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 11">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 12">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 13">
+        <img src="Imagenes/imagen03.jpg" alt="Peli 14">
+        <img src="Imagenes/imagen01.jpg" alt="Peli 15">
+        <img src="Imagenes/imagen02.jpg" alt="Peli 16">
+      </div>
+      <button class="btn-der">&#10095;</button>
     </div>
   </section>
 
@@ -151,5 +230,24 @@
   <footer>
     Plantilla tipo Netflix - Anatolys
   </footer>
+
+  <!-- SCRIPT AL FINAL PARA QUE FUNCIONE CORRECTAMENTE -->
+  <script>
+    const botonesIzq = document.querySelectorAll('.btn-izq');
+    const botonesDer = document.querySelectorAll('.btn-der');
+    const filas = document.querySelectorAll('.fila');
+
+    botonesIzq.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        filas[i].scrollBy({ left: -150, behavior: 'smooth' });
+      });
+    });
+
+    botonesDer.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        filas[i].scrollBy({ left: 150, behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
