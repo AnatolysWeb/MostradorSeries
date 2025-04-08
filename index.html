@@ -45,6 +45,82 @@
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
+        .episodes-section {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 40px 20px;
+        }
+
+        .episode-card {
+            z-index: 1;
+            width: 200px;
+            height: 120px;
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            overflow-y: hidden;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0px 3px 10px rgb(44, 44, 44);
+        }
+
+        .episode-card:hover {
+            z-index: 999;
+            transform: scale(2);
+            max-height: 250px;
+            overflow-y: auto;
+            box-shadow: 0px 3px 10px rgba(153, 0, 255, 0.4);
+            transition: 0.5s ease-in-out;
+        }
+
+        .episode-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .episode-description {
+            font-size: 14px;
+            color: #ccc;
+            opacity: 0;
+            max-height: 0;
+            overflow-y: hidden;
+            transition: 0.3s ease-in-out;
+
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        /* Cuando se hace hover, mostrar con scroll si hace falta */
+
+        .episode-card:hover .episode-description {
+            opacity: 0.8;
+            max-height: fit-content;
+            padding-right: 6px;
+        }
+
+
+        .episode-card::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .episode-card::-webkit-scrollbar-track {
+            background: #1e1e1e; /* fondo de la barra */
+            border-radius: 4px;
+        }
+
+        .episode-card::-webkit-scrollbar-thumb {
+            background-color: rgba(153, 0, 255, 0.8); /* color de la barra */
+            border-radius: 4px;
+        }
+
+        .episode-card::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(153, 0, 255, 0.8); /* color al hacer hover */
+        }
+
     </style>
 </head>
 <body>
@@ -82,6 +158,36 @@
             <iframe width="400" height="250" src="https://www.youtube.com/embed/ID_DEL_VIDEO_2" frameborder="0" allowfullscreen></iframe>
         </div>
     </main>
+
+    <section class="container mt-5">
+        <h2 class="text-center mb-4">Capítulos</h2>
+        <div class="row justify-content-center g-3">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                <div class="episode-card">
+                    <div class="episode-title">Capítulo 1</div>
+                    <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                <div class="episode-card">
+                    <div class="episode-title">Capítulo 2</div>
+                    <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing e...</div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                <div class="episode-card">
+                    <div class="episode-title">Capítulo 3</div>
+                    <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                <div class="episode-card">
+                    <div class="episode-title">Capítulo 4</div>
+                    <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <footer class="footer mt-5">
         <p>&copy; Tony_2025 Presentadores de series - Todos los derechos reservados</p>
