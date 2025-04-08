@@ -69,12 +69,18 @@
 
         .episode-card:hover {
             z-index: 999;
-            transform: scale(2);
+            transform: scale(2.5);
             max-height: 250px;
             overflow-y: auto;
             box-shadow: 0px 3px 10px rgba(153, 0, 255, 0.4);
             transition: 0.5s ease-in-out;
         }
+        @media (max-width: 768px) {
+        .episode-card:hover {
+            transform: scale(2);
+        }
+        }
+
 
         .episode-title {
             font-weight: bold;
@@ -121,6 +127,22 @@
             background-color: rgba(153, 0, 255, 0.8); /* color al hacer hover */
         }
 
+        .episode-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+}
+.episode-card:hover .episode-image {
+    opacity: 0.8;
+    max-height: 300px; /* o el alto que necesites */
+}
+
+
     </style>
 </head>
 <body>
@@ -165,24 +187,28 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
                 <div class="episode-card">
                     <div class="episode-title">Capítulo 1</div>
+                    <img src="ImagenesCarrusel/imagen01.jpg" alt="Imagen del capítulo" class="episode-image">
                     <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
                 <div class="episode-card">
                     <div class="episode-title">Capítulo 2</div>
+                    <img src="ImagenesCarrusel/imagen01.jpg" alt="Imagen del capítulo" class="episode-image">
                     <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing e...</div>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
                 <div class="episode-card">
                     <div class="episode-title">Capítulo 3</div>
+                    <img src="ImagenesCarrusel/imagen01.jpg" alt="Imagen del capítulo" class="episode-image">
                     <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
                 <div class="episode-card">
                     <div class="episode-title">Capítulo 4</div>
+                    <img src="ImagenesCarrusel/imagen01.jpg" alt="Imagen del capítulo" class="episode-image">
                     <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                 </div>
             </div>
