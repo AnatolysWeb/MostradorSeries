@@ -1,5 +1,5 @@
 # TP2 - LENGUAJES III. CARRUSEL CON FRAMEWORKS
-Alumno: YURQUINA RUBEN ANTONIO
+Alumno: Rojas Garcia Ana Carolina
 Carrera: Ing. Informatica
 FrameWork:BOOSTRAP
 
