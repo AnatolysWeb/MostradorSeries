@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Catálogo Estilo Netflix</title>
+
+  <!-- Fuente personalizada (Roboto desde Google Fonts) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ======== ESTILOS GENERALES ======== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #000;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+    }
+
+    /* ======== ENCABEZADO (HEADER estilo Netflix) ======== */
+    header {
+      background-color: #111;
+      padding: 20px 30px;
+      border-bottom: 1px solid #222;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-titulo h1 {
+      color: #e50914;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+      letter-spacing: 1px;
+    }
+
+    .logo-titulo p {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-left: 2px;
+    }
+
+    /* ======== BOTONES DE SESIÓN ======== */
+    .acciones {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-sesion {
+      background-color: transparent;
+      border: 1px solid #e50914;
+      color: #e50914;
+      padding: 8px 18px;
+      font-size: 0.95rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-sesion:hover {
+      background-color: #e50914;
+      color: #fff;
+    }
+
+    .btn-registro {
+      background-color: #e50914;
+      color: #fff;
+      border: none;
+    }
+
+    .btn-registro:hover {
+      background-color: #b00610;
+    }
+
+    /* ======== TÍTULOS DE CATEGORÍA ======== */
+    .categoria {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 30px 0 10px 25px;
+    }
+
+    /* ======== CARRUSEL DE PELÍCULAS / SERIES ======== */
+    .fila {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        padding: 20px;
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+    }
+    /* Estilo para la barra de desplazamiento */
+    .fila::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .fila::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+
+    .episode-card {
+      width: 160px;
+      height: 240px;
+      object-fit: cover;
+      margin-right: 10px;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+
+
+    .contenedor-carrusel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow-x: visible; /* NUEVO */
+    }
+    
+
+    /* Flechas del carrusel */
+    .btn-izq,
+    .btn-der {
+      position: absolute;
+      z-index: 10;
+      background-color: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      height: 100%;
+      width: 50px;
+      transition: background 0.3s;
+    }
+
+    .btn-izq:hover,
+    .btn-der:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .btn-izq {
+      left: 0;
+    }
+
+    .btn-der {
+      right: 0;
+    }
+
+    /* ======== PIE DE PÁGINA ======== */
+    footer {
+      background-color: #111;
+      text-align: center;
+      color: #888;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* ======== RESPONSIVE (pantallas pequeñas) ======== */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .categoria {
+        font-size: 1.2rem;
+        margin-left: 15px;
+      }
+
+      .fila {
+        padding: 0 15px 20px;
+      }
+
+
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .acciones {
+        align-self: flex-end;
+      }
+
+      .btn-sesion {
+        padding: 6px 14px;
+        font-size: 0.85rem;
+      }
+    }
+
+/* Imagen SIEMPRE visible */
+
+.episode-card {
+  flex: 0 0 auto;
+  width: 160px;
+  height: 240px;
+  background-color: #111;
+  border-radius: 6px;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.episode-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.episode-card:hover {
+  transform: scale(1.5);
+  overflow-y: auto;
+  
+  z-index: 100;
+  padding: 1.5em;
+  padding-top: 1.5em;
+}
+
+.episode-card::-webkit-scrollbar {
+  width: 6px; /* altura del scroll horizontal */
+}
+/* Ocultar título y descripción por defecto */
+.episode-title,
+.episode-description {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  padding: 0;
+  margin: 0;
+}
+
+/* Mostrar título y descripción al hacer hover */
+.episode-card:hover .episode-title,
+.episode-card:hover .episode-description {
+  opacity: 1;
+  max-height: 200px;
+  margin-top: 8px;
+  padding-right: 6px;
+}
+
+.episode-card:hover .episode-image{
+    display: none;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO (LOGO y BOTONES) -->
+  <header>
+    <div class="header-container">
+      <div class="logo-titulo">
+        <h1>Netflix</h1>
+        <p>Mi catálogo de pelis</p>
+      </div>
+      <div class="acciones">
+        <button class="btn-sesion">Iniciar sesión</button>
+        <button class="btn-sesion btn-registro">Registrarse</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PRIMERA FILA: POPULARES -->
+  <section>
+    <div class="categoria">Populares</div>
+    <div class="contenedor-carrusel">
+      <!-- Botón izquierda -->
+      <button class="btn-izq">&#10094;</button>
+
+      <!-- Carrusel -->
+      <div class="fila">
+        <!-- Tarjeta de episodio interactiva -->
+        <div class="episode-card">
+            <img src="Imagenes_2/fila1/Arcane.jpeg" alt="Imagen del capítulo" class="episode-image">
+            <div class="episode-title">Titulo</div>
+          <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img src="Imagenes_2/fila1/Arcane.jpeg" alt="Imagen del capítulo" class="episode-image">
+            <div class="episode-title">Titulo</div>
+          <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img src="Imagenes_2/fila1/Arcane.jpeg" alt="Imagen del capítulo" class="episode-image">
+            <div class="episode-title">Titulo</div>
+          <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img src="Imagenes_2/fila1/Arcane.jpeg" alt="Imagen del capítulo" class="episode-image">
+            <div class="episode-title">Titulo</div>
+          <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img src="Imagenes_2/fila1/Arcane.jpeg" alt="Imagen del capítulo" class="episode-image">
+            <div class="episode-title">Titulo</div>
+          <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img src="Imagenes_2/fila1/Arcane.jpeg" alt="Imagen del capítulo" class="episode-image">
+            <div class="episode-title">Titulo</div>
+          <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img src="Imagenes_2/fila1/Arcane.jpeg" alt="Imagen del capítulo" class="episode-image">
+            <div class="episode-title">Titulo</div>
+          <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img src="Imagenes_2/fila1/Arcane.jpeg" alt="Imagen del capítulo" class="episode-image">
+            <div class="episode-title">Titulo</div>
+          <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img src="Imagenes_2/fila1/Arcane.jpeg" alt="Imagen del capítulo" class="episode-image">
+            <div class="episode-title">Titulo</div>
+          <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+
+        <!-- ...más imágenes -->
+      </div>
+
+      <!-- Botón derecha -->
+      <button class="btn-der">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- MÁS FILAS PUEDEN CONTINUAR AQUÍ... -->
+
+</body>
+</html>
