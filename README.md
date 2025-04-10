@@ -1,7 +1,4 @@
 # TP2 - LENGUAJES III. CARRUSEL CON FRAMEWORKS
-Alumno: YURQUINA RUBEN ANTONIO
-Carrera: Ing. Informatica
-FrameWork:BOOSTRAP
-
+ PROYECTO HTML DE YURQUINA RUBEN ANTONIO CON BOOSTRAP Y CARRUSEL
 
 Link:  https://anatolysweb.github.io/MostradorSeries_TP3LenguajeIII/
