@@ -1,16 +1,26 @@
-# TP2 - LENGUAJES III. CARRUSEL CON FRAMEWORKS
-<<<<<<< HEAD
- PROYECTO HTML CON BOOSTRAP Y CARRUSEL
+# TP2 – Lenguajes III  
+## Carrusel con Frameworks
 
-Este es el proyecto base sobre el que trabajaremos en ramas.
-cada uno con una rama asignada. Luego en colaborativo uniremos nuestras implemtentaciones.
+### Proyecto HTML con Bootstrap
 
-Alumno: Rojas Garcia Ana Carolina
-Alumno: Yurquina Ruben Antonio
-Carrera: Ing. Informatica
+Este es el proyecto base sobre el cual trabajaremos utilizando control de versiones mediante ramas.  
+Cada integrante tiene una rama asignada y, posteriormente, se integrarán todas las implementaciones de forma colaborativa.
 
-FrameWork:BOOSTRAP
+---
 
-netflix con display titulo y descripcion por default
+### 👥 Integrantes:
+- **Rojas García, Ana Carolina**  
+- **Yurquina, Rubén Antonio**
 
-Link:  https://anatolysweb.github.io/MostradorSeries/
+**Carrera:** Ingeniería en Informática  
+**Framework utilizado:** [Bootstrap](https://getbootstrap.com/)
+
+---
+
+### 🎯 Descripción del Proyecto:
+Se ha desarrollado un carrusel de estilo **Netflix**, que permite mostrar contenido con su **título** y **descripción** visibles por defecto.
+
+---
+
+### 🌐 Enlace al proyecto:
+[🔗 Ver proyecto en GitHub Pages](https://anatolysweb.github.io/MostradorSeries/)
