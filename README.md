@@ -5,6 +5,7 @@ Carrera: Ing. Informatica
 
 FrameWork:BOOSTRAP
 
-se agrego display de capitulo/serie similar a netflix cuando buscamos + info
+netflix con display titulo y descripcion por default
+
 
 Link:  https://anatolysweb.github.io/MostradorSeries_TP3LenguajeIII/
