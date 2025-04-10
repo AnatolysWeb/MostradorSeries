@@ -3,20 +3,14 @@
  PROYECTO HTML CON BOOSTRAP Y CARRUSEL
 
 Este es el proyecto base sobre el que trabajaremos en ramas.
-cada uno con una rama asignada.
+cada uno con una rama asignada. Luego en colaborativo uniremos nuestras implemtentaciones.
 
- Propietario: Yurquina Ruben Antonio    (Rama: Main)
- Colaborador: Yurquina Ruben Antonio    (Rama: Tony)
- Colaborador: Rojas Ana Carolina        (Rama: Caro)
-=======
 Alumno: Rojas Garcia Ana Carolina
-
+Alumno: Yurquina Ruben Antonio
 Carrera: Ing. Informatica
 
 FrameWork:BOOSTRAP
 
 netflix con display titulo y descripcion por default
 
-
-Link:  https://anatolysweb.github.io/MostradorSeries_TP3LenguajeIII/
->>>>>>> Caro
+Link:  https://anatolysweb.github.io/MostradorSeries/
