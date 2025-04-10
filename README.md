@@ -1,4 +1,10 @@
 # TP2 - LENGUAJES III. CARRUSEL CON FRAMEWORKS
- PROYECTO HTML DE YURQUINA RUBEN ANTONIO CON BOOSTRAP Y CARRUSEL
+ PROYECTO HTML CON BOOSTRAP Y CARRUSEL
 
-Link:  https://Anatolys.github.io/MostradorSeries_TP3LenguajeIII/
+Este es el proyecto base sobre el que trabajaremos en ramas.
+cada uno con una rama asignada.
+
+ Propietario: Yurquina Ruben Antonio    (Rama: Tony)
+ Colaborador: Rojas Ana Carolina        (Rama: Caro)
+ Colaborador: Callapa Braian Rafael     (Rama: Callapa)
+ Colaborador: Robledo Urdininea Nicolas (Rama: Robledo)
