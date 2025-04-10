@@ -22,86 +22,86 @@
       color: #fff;
     }
 
-    /* ======== ENCABEZADO ======== */
+    /* ======== ENCABEZADO (HEADER estilo Netflix) ======== */
+    header {
+      background-color: #111;
+      padding: 20px 30px;
+      border-bottom: 1px solid #222;
+    }
 
-    /* ======== HEADER ESTILO NETFLIX ======== */
-header {
-  background-color: #111;
-  padding: 20px 30px;
-  border-bottom: 1px solid #222;
-}
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.header-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .logo-titulo h1 {
+      color: #e50914;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+      letter-spacing: 1px;
+    }
 
-.logo-titulo h1 {
-  color: #e50914;
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 2px;
-  letter-spacing: 1px;
-}
+    .logo-titulo p {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-left: 2px;
+    }
 
-.logo-titulo p {
-  color: #ccc;
-  font-size: 1.1rem;
-  margin-left: 2px;
-}
+    /* ======== BOTONES DE SESIÓN ======== */
+    .acciones {
+      display: flex;
+      gap: 12px;
+    }
 
-/* Botones de sesión */
-.acciones {
-  display: flex;
-  gap: 12px;
-}
+    .btn-sesion {
+      background-color: transparent;
+      border: 1px solid #e50914;
+      color: #e50914;
+      padding: 8px 18px;
+      font-size: 0.95rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-.btn-sesion {
-  background-color: transparent;
-  border: 1px solid #e50914;
-  color: #e50914;
-  padding: 8px 18px;
-  font-size: 0.95rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.3s, color 0.3s;
-}
+    .btn-sesion:hover {
+      background-color: #e50914;
+      color: #fff;
+    }
 
-.btn-sesion:hover {
-  background-color: #e50914;
-  color: #fff;
-}
+    .btn-registro {
+      background-color: #e50914;
+      color: #fff;
+      border: none;
+    }
 
-.btn-registro {
-  background-color: #e50914;
-  color: #fff;
-  border: none;
-}
+    .btn-registro:hover {
+      background-color: #b00610;
+    }
 
-.btn-registro:hover {
-  background-color: #b00610;
-}
-
-    /* ======== TITULOS DE CATEGORÍA ======== */
+    /* ======== TÍTULOS DE CATEGORÍA ======== */
     .categoria {
       font-size: 1.5rem;
       font-weight: bold;
       margin: 30px 0 10px 25px;
     }
 
-    /* ======== CARRUSEL ======== */
+    /* ======== CARRUSEL DE PELÍCULAS / SERIES ======== */
     .fila {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding: 0 25px 20px;
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        padding: 20px;
+        gap: 10px;
+        scroll-snap-type: x mandatory;
     }
-
-    /* Scroll */
+    /* Estilo para la barra de desplazamiento */
     .fila::-webkit-scrollbar {
       height: 8px;
     }
@@ -111,7 +111,7 @@ header {
       border-radius: 4px;
     }
 
-    .fila img {
+    .episode-card {
       width: 160px;
       height: 240px;
       object-fit: cover;
@@ -121,17 +121,17 @@ header {
       cursor: pointer;
     }
 
-    .fila img:hover {
-      transform: scale(1.07);
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
-    }
+
 
     .contenedor-carrusel {
       position: relative;
       display: flex;
       align-items: center;
+      overflow-x: visible; /* NUEVO */
     }
+    
 
+    /* Flechas del carrusel */
     .btn-izq,
     .btn-der {
       position: absolute;
@@ -168,7 +168,7 @@ header {
       font-size: 0.9rem;
     }
 
-    /* ======== RESPONSIVE ======== */
+    /* ======== RESPONSIVE (pantallas pequeñas) ======== */
     @media (max-width: 768px) {
       header h1 {
         font-size: 2rem;
@@ -183,30 +183,85 @@ header {
         padding: 0 15px 20px;
       }
 
-      .fila img {
-        width: 120px;
-        height: 180px;
+
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .acciones {
+        align-self: flex-end;
+      }
+
+      .btn-sesion {
+        padding: 6px 14px;
+        font-size: 0.85rem;
       }
     }
 
-    @media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
+/* Imagen SIEMPRE visible */
 
-  .acciones {
-    align-self: flex-end;
-  }
-
-  .btn-sesion {
-    padding: 6px 14px;
-    font-size: 0.85rem;
-  }
+.episode-card {
+  flex: 0 0 auto;
+  width: 160px;
+  height: 240px;
+  background-color: #111;
+  border-radius: 6px;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-  </style>
+.episode-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.episode-card:hover {
+  transform: scale(1.5);
+  overflow-y: auto;
+  z-index: 100;
+  padding: 1em;
+  padding-top: 1.5em;
+  padding-bottom: 3em;
+}
+
+.episode-card::-webkit-scrollbar {
+  width: 2px;
+}
+/* Ocultar título y descripción por defecto */
+.episode-title,
+.episode-description {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  padding: 0;
+  margin: 0;
+  font-size: 14px
+}
+.episode-title{
+    font-weight: bold;
+}
+
+/* Mostrar título y descripción al hacer hover */
+.episode-card:hover .episode-title,
+.episode-card:hover .episode-description {
+  opacity: 1;
+  max-height: 200px;
+  margin-top: 8px;
+  padding-right: 6px;
+}
+
+.episode-card:hover .episode-image{
+    display: none;
+}
+
+</style>
 </head>
 <body>
 
@@ -230,22 +285,87 @@ header {
     <div class="contenedor-carrusel">
       <button class="btn-izq">&#10094;</button>
       <div class="fila">
-        <img src="Imagenes/fila1/24 Books You Should Read, Based On Your Favorite TV Shows.jpeg" alt="Peli 1">
-        <img src="Imagenes/fila1/Arcane.jpeg" alt="Peli 2">
-        <img src="Imagenes/fila1/descargar (1).jpeg" alt="Peli 3">
-        <img src="Imagenes/fila1/descargar (2).jpeg" alt="Peli 4">
-        <img src="Imagenes/fila1/descargar (3).jpeg" alt="Peli 5">
-        <img src="Imagenes/fila1/descargar (4).jpeg" alt="Peli 6">
-        <img src="Imagenes/fila1/descargar (5).jpeg" alt="Peli 7">
-        <img src="Imagenes/fila1/descargar (6).jpeg" alt="Peli 8">
-        <img src="Imagenes/fila1/descargar (7).jpeg" alt="Peli 9">
-        <img src="Imagenes/fila1/descargar.jpeg" alt="Peli 10">
-        <img src="Imagenes/fila1/la casa de papel.jpeg" alt="Peli 11">
-        <img src="Imagenes/fila1/Mindhunter (2017).jpeg" alt="Peli 12">
-        <img src="Imagenes/fila1/Narcos TV Series Poster.jpeg" alt="Peli 13">
-        <img src="Imagenes/fila1/Sex Education (2019).jpeg" alt="Peli 14">
-        <img src="Imagenes/fila1/Should I Watch 13 Reasons Why – From a Parents Perspective.jpeg" alt="Peli 15">
-        <img src="Imagenes/fila1/The Top 15 Shows On Netflix To Watch Together With Bae.jpeg" alt="Peli 16">
+        <!--<img src="Imagenes_2/fila1/24 Books You Should Read, Based On Your Favorite TV Shows.jpeg" alt="Peli 1">-->
+        <div class="episode-card">
+            <div class="episode-title">Capítulo 1</div>
+            <img src="ImagenesCarrusel/imagen01.jpg" alt="Imagen del capítulo" class="episode-image">
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/Arcane.jpeg" alt="Peli 2">
+            <div class="episode-title">ARCANE</div>
+            <div class="episode-description">Arcane es un viaje visualmente impresionante y emocionalmente intenso a un mundo de caos, poder y lucha. En las profundidades de la ciudad de Zaun, dos hermanas, Vi y Jinx, enfrentan la vida a través de un torbellino de desolación, traición y secretos que las separan. Mientras Vi, la luchadora resistente, busca un camino hacia la justicia, Jinx se adentra en el lado oscuro de la ciudad, sucumbiendo a la locura y el caos que la define. Arcane revela las tensiones entre los ricos y los oprimidos, los que quieren salvar el mundo y los que buscan destruirlo. Una historia profunda sobre amor, venganza, y lo que significa realmente ser un héroe o un villano.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/descargar (1).jpeg" alt="Peli 3">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/descargar (2).jpeg" alt="Peli 4">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/descargar (3).jpeg" alt="Peli 5">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/descargar (4).jpeg" alt="Peli 6">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/descargar (5).jpeg" alt="Peli 7">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/descargar (6).jpeg" alt="Peli 8">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/descargar (7).jpeg" alt="Peli 9">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/descargar.jpeg" alt="Peli 10">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/la casa de papel.jpeg" alt="Peli 11">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/Mindhunter (2017).jpeg" alt="Peli 12">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/Narcos TV Series Poster.jpeg" alt="Peli 13">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/Sex Education (2019).jpeg" alt="Peli 14">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/Should I Watch 13 Reasons Why – From a Parents Perspective.jpeg" alt="Peli 15">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila1/The Top 15 Shows On Netflix To Watch Together With Bae.jpeg" alt="Peli 16">
+            <div class="episode-title">Capítulo 1</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
       </div>
       <button class="btn-der">&#10095;</button>
     </div>
@@ -257,22 +377,86 @@ header {
     <div class="contenedor-carrusel">
       <button class="btn-izq">&#10094;</button>
       <div class="fila">
-        <img src="Imagenes/fila2/COBRA KAI - Season 5 (2022).jpeg" alt="Peli 1">
-        <img src="Imagenes/fila2/descargar (1).jpeg" alt="Peli 2">
-        <img src="Imagenes/fila2/descargar (2).jpeg" alt="Peli 3">
-        <img src="Imagenes/fila2/descargar (3).jpeg" alt="Peli 4">
-        <img src="Imagenes/fila2/descargar.jpeg" alt="Peli 5">
-        <img src="Imagenes/fila2/Emily in Paris 3.jpeg" alt="Peli 6">
-        <img src="Imagenes/fila2/Fubar Upcoming 2023 Netflix Series.jpeg" alt="Peli 7">
-        <img src="Imagenes/fila2/Locke & Key ( Opinion ).jpeg" alt="Peli 8">
-        <img src="Imagenes/fila2/NETFLIX BRIDGERTON - DAPHNE AND SIMON.jpeg" alt="Peli 9">
-        <img src="Imagenes/fila2/PEAKY BLINDERS.jpeg" alt="Peli 10">
-        <img src="Imagenes/fila2/Shadow and Bone.jpeg" alt="Peli 11">
-        <img src="Imagenes/fila2/Super Crooks - Mark Millar, Leinil Yu.jpeg" alt="Peli 12">
-        <img src="Imagenes/fila2/Sweet Tooth.jpeg" alt="Peli 13">
-        <img src="Imagenes/fila2/The Diplomat (series, 2023-).jpeg" alt="Peli 14">
-        <img src="Imagenes/fila2/The Queen's Gambit.jpeg" alt="Peli 15">
-        <img src="Imagenes/fila2/XO, Kitty 2023.jpeg" alt="Peli 16">
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/COBRA KAI - Season 5 (2022).jpeg" alt="Peli 1">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/descargar (1).jpeg" alt="Peli 2">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/descargar (2).jpeg" alt="Peli 3">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/descargar (3).jpeg" alt="Peli 4">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/descargar.jpeg" alt="Peli 5">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/Emily in Paris 3.jpeg" alt="Peli 6">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/Fubar Upcoming 2023 Netflix Series.jpeg" alt="Peli 7">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/Locke & Key ( Opinion ).jpeg" alt="Peli 8">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/NETFLIX BRIDGERTON - DAPHNE AND SIMON.jpeg" alt="Peli 9">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img src="Imagenes_2/fila2/PEAKY BLINDERS.jpeg" alt="Peli 10">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/Shadow and Bone.jpeg" alt="Peli 11">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/Super Crooks - Mark Millar, Leinil Yu.jpeg" alt="Peli 12">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/Sweet Tooth.jpeg" alt="Peli 13">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/The Diplomat (series, 2023-).jpeg" alt="Peli 14">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/The Queen's Gambit.jpeg" alt="Peli 15">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila2/XO, Kitty 2023.jpeg" alt="Peli 16">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
       </div>
       <button class="btn-der">&#10095;</button>
     </div>
@@ -284,21 +468,71 @@ header {
     <div class="contenedor-carrusel">
       <button class="btn-izq">&#10094;</button>
       <div class="fila">
-        <img src="Imagenes/fila3/Al adaptación de Devil May Cry de Netflix ya tiene fecha de estreno.jpeg" alt="Peli 1">
-        <img src="Imagenes/fila3/Bad Influence_ The Dark Side of Kidfluencing (TV Series 2025) _ Documentary.jpeg" alt="Peli 2">
-        <img src="Imagenes/fila3/Den of Thieves 2_ Pantera (2025).jpeg" alt="Peli 3">
-        <img src="Imagenes/fila3/descargar (1).jpeg" alt="Peli 4"><img src="Imagenes/fila3/descargar.jpeg" alt="Peli 5">
-        
-        <img src="Imagenes/fila3/From, saison I_.jpeg" alt="Peli 6">
-        <img src="Imagenes/fila3/Movies recommendations 2025 _ Ransom Canyon_ is actually a TV series, not a movie _ Facebook.jpeg" alt="Peli 7">
-        <img src="Imagenes/fila3/Poster da 2ª temporada de _The Walking Dead_.jpeg" alt="Peli 8">
-        <img src="Imagenes/fila3/Pôster da série Jurassic World Teoria do Caos!.jpeg" alt="Peli 9">
-        <img src="Imagenes/fila3/Pulse [回路 Kairo] (Kiyoshi Kurosawa, 2001).jpeg" alt="Peli 10">
-        <img src="Imagenes/fila3/stranger things - the first shadow _ Phoenix Theatre.jpeg" alt="Peli 11">
-        <img src="Imagenes/fila3/The Black Balloon (2008).jpeg" alt="Peli 12">
-        <img src="Imagenes/fila3/The Constant Gardener (2005).jpeg" alt="Peli 13">
-        <img src="Imagenes/fila3/The North Water.jpeg" alt="Peli 14">
-        <img src="Imagenes/fila3/Young Sheldon Poster Collection_ 30+ Amazing Posters for Sheldon Cooper Fans.jpeg" alt="Peli 15">
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/Al adaptación de Devil May Cry de Netflix ya tiene fecha de estreno.jpeg" alt="Peli 1">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/Bad Influence_ The Dark Side of Kidfluencing (TV Series 2025) _ Documentary.jpeg" alt="Peli 2">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/Den of Thieves 2_ Pantera (2025).jpeg" alt="Peli 3">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/descargar (1).jpeg" alt="Peli 4">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/From, saison I_.jpeg" alt="Peli 6">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/Poster da 2ª temporada de _The Walking Dead_.jpeg" alt="Peli 8">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/Pôster da série Jurassic World Teoria do Caos!.jpeg" alt="Peli 9">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/Pulse [回路 Kairo] (Kiyoshi Kurosawa, 2001).jpeg" alt="Peli 10">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/stranger things - the first shadow _ Phoenix Theatre.jpeg" alt="Peli 11">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/The Black Balloon (2008).jpeg" alt="Peli 12">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/The Constant Gardener (2005).jpeg" alt="Peli 13">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/The North Water.jpeg" alt="Peli 14">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
+        <div class="episode-card">
+            <img class="episode-image" src="Imagenes_2/fila3/Young Sheldon Poster Collection_ 30+ Amazing Posters for Sheldon Cooper Fans.jpeg" alt="Peli 15">
+            <div class="episode-title">Titulo</div>
+            <div class="episode-description">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,sLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
+        </div>
       </div>
       <button class="btn-der">&#10095;</button>
     </div>
